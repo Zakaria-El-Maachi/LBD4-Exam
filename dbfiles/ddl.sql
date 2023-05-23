@@ -49,6 +49,12 @@ create table programs(
 
 
 insert into users values (1, "zakaria", "zakaria.elmaachi@um6p.ma","$2y$10$M7/iYaATJbDYSp3neG2FZu1dpfAB6KEurhy1rjxiUyx26ViE01HhG" ,1);
-insert into elections values (1, "delegate", "","2016-11-01" ,"2018-11-01");
-insert into elections values (2, "quoi", "","2015-11-01" ,"2019-11-01");
-insert into elections values (3, "como", "","2013-11-01" ,"2020-11-01");
+
+insert into elections values (1, "delegate", "", "2016-11-01" , "2018-11-01");
+insert into elections values (2, "quoi", "", "2015-11-01" , "2019-11-01");
+insert into elections values (3, "como", "", "2013-11-01" , "2020-11-01");
+
+insert into candidates values (1, 1,"Zakaria", "https://img.freepik.com/free-photo/portrait-handsome-young-boy_23-2148414490.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
+insert into candidates values (2, 1,"Aya", "https://img.freepik.com/free-photo/close-up-portrait-cheerful-glamour-girl-with-cute-make-up-smiling-white-teeth-looking-happy-camera-standing-blue-background_1258-70300.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
+insert into candidates values (3, 2,"Aziza", "https://img.freepik.com/free-photo/close-up-portrait-cheerful-glamour-girl-with-cute-make-up-smiling-white-teeth-looking-happy-camera-standing-blue-background_1258-70300.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
+insert into candidates values (4, 3,"Zineb", "https://img.freepik.com/free-photo/close-up-portrait-cheerful-glamour-girl-with-cute-make-up-smiling-white-teeth-looking-happy-camera-standing-blue-background_1258-70300.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
