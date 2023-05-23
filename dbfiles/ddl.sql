@@ -46,3 +46,9 @@ create table programs(
     affiche varchar(200) not null,
     foreign key (candidateId) references candidates(candidateId) on delete cascade
 );
+
+
+insert into users values (1, "zakaria", "zakaria.elmaachi@um6p.ma","$2y$10$M7/iYaATJbDYSp3neG2FZu1dpfAB6KEurhy1rjxiUyx26ViE01HhG" ,1);
+insert into elections values (1, "delegate", "","2016-11-01" ,"2018-11-01");
+insert into elections values (2, "quoi", "","2015-11-01" ,"2019-11-01");
+insert into elections values (3, "como", "","2013-11-01" ,"2020-11-01");

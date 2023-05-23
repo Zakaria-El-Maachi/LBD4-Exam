@@ -1,57 +1,31 @@
-
-(function ($) {
-    "use strict";
-
-    
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
-
-    $('.validate-form').on('submit',function(){
-        var check = true;
-
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
+document.querySelector('[type="submit"]').addEventListener("click", (event) => {
+    event.preventDefault();
+    email = document.querySelector('[name="email"]').value.toLowerCase();
+    if (validate(email)){
+        let data = `email=${email}&passwrd=${document.querySelector('[name="passwrd"]').value}`;
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                if(this.responseText){
+                    window.location.href = "landing.html";
+                }
+                else{
+                    console.log("false");
+                }
             }
-        }
-
-        return check;
-    });
-
-
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-           hideValidate(this);
-        });
-    });
-
-    function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
-            }
-        }
-        else {
-            if($(input).val().trim() == ''){
-                return false;
-            }
-        }
+        };
+        xhr.open("POST", "loginHandler.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(data);
     }
-
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).addClass('alert-validate');
+    else{
+        console.log("false");
     }
+});
 
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).removeClass('alert-validate');
+function validate(input){
+    if(/^\w+([\.-]?\w+)*@um6p.ma/.test(input)){
+        return true;
     }
-    
-    
-
-})(jQuery);
+    return false;
+}
