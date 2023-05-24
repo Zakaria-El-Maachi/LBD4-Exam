@@ -28,11 +28,11 @@ create table candidates(
 );
 
 create table votes(
-    voteId integer primary key auto_increment,
     electionId integer not null,
     userId integer not null,
     vote integer not null,
     SDate date not null,
+    primary key(electionId, userId),
     foreign key (userId) references users(userid) on delete cascade,
     foreign key (electionId) references elections(electionId) on delete cascade,
     foreign key (vote) references candidates(candidateId) on delete cascade
@@ -53,13 +53,13 @@ create table programs(
 
 create table candidateRequest(
     electionId integer not null,
-    userId integer,
-    candidateName varchar(100) not null,
+    userId integer not null,
     photo varchar(400) not null,
     title varchar(300) not null,
     descr varchar(10000) not null,
     vid varchar(400) not null,
     flyer varchar(400) not null,
+    primary key(electionId, userId),
     foreign key (electionId) references elections(electionId) on delete cascade
 );
 
@@ -76,6 +76,6 @@ insert into candidates values (3, 1,"Abdellatif", "https://img.freepik.com/free-
 insert into candidates values (4, 2,"Aziza", "https://img.freepik.com/free-photo/close-up-portrait-cheerful-glamour-girl-with-cute-make-up-smiling-white-teeth-looking-happy-camera-standing-blue-background_1258-70300.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
 insert into candidates values (5, 3,"Zineb", "https://img.freepik.com/free-photo/close-up-portrait-cheerful-glamour-girl-with-cute-make-up-smiling-white-teeth-looking-happy-camera-standing-blue-background_1258-70300.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
 
-insert into programs values(1 , 1, "Nthg", "nthg", "", "https://img.freepik.com/free-photo/aerial-view-business-team_53876-124515.jpg?size=626&ext=jpg&ga=GA1.1.1687857673.1684429251&semt=sph");
-insert into programs values(2 , 2, "Uniqueness", "the best", "", "");
-insert into programs values(3 , 3, "Patience", "legendary", "", "https://img.freepik.com/free-photo/futuristic-finance-digital-market-graph-user-interface-with-diagram-technology-hud-graphic-concept_90220-1365.jpg?size=626&ext=jpg&ga=GA1.1.1687857673.1684429251&semt=sph");
+insert into programs values(1 , 1, "Nthg", "nthg", "jD97hNDiyvI", "https://img.freepik.com/free-photo/aerial-view-business-team_53876-124515.jpg?size=626&ext=jpg&ga=GA1.1.1687857673.1684429251&semt=sph");
+insert into programs values(2 , 2, "Uniqueness", "the best", "JZjAg6fK-BQ", "");
+insert into programs values(3 , 3, "Patience", "legendary", "sVx1mJDeUjY", "https://img.freepik.com/free-photo/futuristic-finance-digital-market-graph-user-interface-with-diagram-technology-hud-graphic-concept_90220-1365.jpg?size=626&ext=jpg&ga=GA1.1.1687857673.1684429251&semt=sph");

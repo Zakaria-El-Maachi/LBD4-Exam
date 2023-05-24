@@ -1,0 +1,27 @@
+body{
+    display: flex;
+}
+#navbar{
+    height: 100vh;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20% 30%;
+    background-color: linear-gradient(to left, rgb(100, 100, 204), rgb(139, 77, 139));
+    row-gap: 20px;
+}
+#navbar a{
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: larger;
+}
+
+#create{
+    display:none
+}
+#requests{
+    display: none;
+}

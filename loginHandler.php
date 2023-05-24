@@ -15,6 +15,8 @@ try {
         $answer = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
         if (password_verify($_POST["passwrd"], $answer["passwrd"])) {
             $r = 1;
+            session_start();
+            $_SESSION["userId"] = $_POST["userId"];
         }
         echo $r;
     }

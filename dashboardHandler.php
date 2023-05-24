@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST["electionId"])) {
+if($_POST["request"] == 1){
     $query = "insert into candidateRequest (electionId, userId, photo, title, descr, vid, flyer) values (?, ?, ?, ?, ?, ?, ?)";
     $host = "localhost";
     $db = "Voting";
@@ -17,5 +17,4 @@ if (isset($_POST["electionId"])) {
     $stmt->bindValue(6, $_POST["vid"]);
     $stmt->bindValue(7, $_POST["flyer"]);
     $stmt->execute();
-    header("Location: election.php?electionId=" . $_POST["electionId"]);
 }

@@ -34,7 +34,11 @@
             }
             ?>
         </section>
-        <section id="info">
+        <section>
+            <div id="info">
+
+            </div>
+            <button id="vote" data-candidateId="">Vote</button>
         </section>
     </div>
 </body>

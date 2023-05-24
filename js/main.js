@@ -7,7 +7,7 @@ document.querySelector('[type="submit"]').addEventListener("click", (event) => {
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 if(this.responseText){
-                    window.location.href = "landing.html";
+                    window.location.href = "elections.php";
                 }
                 else{
                     console.log("false");
@@ -19,7 +19,7 @@ document.querySelector('[type="submit"]').addEventListener("click", (event) => {
         xhr.send(data);
     }
     else{
-        console.log("false");
+        console.log("como");
     }
 });
 
