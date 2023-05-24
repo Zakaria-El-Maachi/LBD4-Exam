@@ -13,16 +13,17 @@ links[0].addEventListener("click", (event) => {
 
 links[2].addEventListener("click", (event) => {
     event.preventDefault();
+    console.log("haha");
     sendRequest(requests, 1, "request=2");
 });
 
 links[1].addEventListener("click", (event) => {
     event.preventDefault();
-    if(shown == create){
+    if(shown != create){
         shown.style.display = "none";
     }
     shown = create;
-    elections.style.display = "flex";
+    create.style.display = "flex";
 });
 
 
@@ -31,10 +32,11 @@ function sendRequest(element, child, data){
         shown.style.display = "none";
     }
     shown = element;
-    elections.style.display = "flex";
+    element.style.display = "flex";
     let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
                 element.children[child].innerHTML += this.responseText;
             }
         };

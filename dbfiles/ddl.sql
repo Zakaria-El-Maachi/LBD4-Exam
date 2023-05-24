@@ -51,7 +51,7 @@ create table programs(
 -- UserId must not be null
 -- foreign key (candidateId) references users(userId) on delete cascade
 
-create table candidateRequest(
+create table candidateRequests(
     electionId integer not null,
     userId integer not null,
     photo varchar(400) not null,
