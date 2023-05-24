@@ -10,7 +10,7 @@ try {
         $conn = new PDO("mysql:host=$host;dbname=$db", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(1, $_POST["email"]);
+        $stmt->bindValue(1, $_POST["email"]);
         $stmt->execute();
         $answer = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
         if (password_verify($_POST["passwrd"], $answer["passwrd"])) {

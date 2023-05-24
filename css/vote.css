@@ -13,3 +13,10 @@
     width: 30%;
     object-fit: contain;
 }
+
+#info{
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

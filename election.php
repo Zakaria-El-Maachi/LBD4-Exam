@@ -19,11 +19,10 @@
             $db = "Voting";
             $username = "root";
             $password = "";
-            $r = 0;
             $conn = new PDO("mysql:host=$host;dbname=$db", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $conn->prepare($query);
-            $stmt->bindParam(1, $_GET["electionId"]);
+            $stmt->bindValue(1, $_GET["electionId"]);
             $stmt->execute();
             $answer = $stmt->fetch(PDO::FETCH_ASSOC);
             echo "<h1>" . $answer["title"] . "</h1><p>" . $answer["descr"] . "</p><br/>" .
@@ -36,8 +35,8 @@
         }
         ?>
     </section>
-    <section id="candidate">
-        <h1>Candidate</h1>
+    <section id="apply">
+        <h1>Apply</h1>
     </section>
     <section id="vote">
         <h1>Vote</h1>

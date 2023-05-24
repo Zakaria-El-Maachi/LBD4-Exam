@@ -25,7 +25,6 @@
                 $db = "Voting";
                 $username = "root";
                 $password = "";
-                $r = 0;
                 $conn = new PDO("mysql:host=$host;dbname=$db", $username, $password);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $stmt = $conn->prepare($query);
