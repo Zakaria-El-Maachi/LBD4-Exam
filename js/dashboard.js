@@ -2,46 +2,44 @@ const links = document.querySelectorAll("a");
 const elections = document.querySelector("#elections");
 const create = document.querySelector("#create");
 const requests = document.querySelector("#requests");
+const message = document.querySelector("#message");
 var shown = elections;
 
-sendRequest(elections, 2, "request=1");
+if(window.location.search == "?message=createdElection"){
+    message.style["background-color"] = "green";
+    message.children[0].textContent = "The election has successfully been created";
+    message.style["display"] = "block";
+} else if(window.location.search == "?message=error"){
+    message.style["background-color"] = "pink";
+    message.children[0].textContent = "There was an error in the operation";
+    message.style["display"] = "block";
+}
+
 
 links[0].addEventListener("click", (event) => {
     event.preventDefault();
-    sendRequest(elections, 2, "request=1");
+    show(elections);
 });
 
 links[2].addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("haha");
-    sendRequest(requests, 1, "request=2");
+    show(requests);
 });
 
 links[1].addEventListener("click", (event) => {
     event.preventDefault();
-    if(shown != create){
-        shown.style.display = "none";
-    }
-    shown = create;
-    create.style.display = "flex";
+    show(create);
 });
 
 
-function sendRequest(element, child, data){
+function show(element){
     if(shown != element){
         shown.style.display = "none";
+        shown = element;
+        element.style.display = "flex";
     }
-    shown = element;
-    element.style.display = "flex";
-    let xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
-                element.children[child].innerHTML += this.responseText;
-            }
-        };
-        xhr.open("POST", "dashboardHandler.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send(data);
 }
 
+function hideMessage(){
+    message.style["display"] = "none";
+}
