@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST["electionId"])) {
-    $query = "insert into candidateRequest (electionId, userId, photo, title, descr, vid, flyer) values (?, ?, ?, ?, ?, ?, ?)";
+    $query = "insert into candidateRequests (electionId, userId, photo, title, descr, vid, flyer) values (?, ?, ?, ?, ?, ?, ?)";
     $host = "localhost";
     $db = "Voting";
     $username = "root";
@@ -10,7 +10,7 @@ if (isset($_POST["electionId"])) {
     $stmt = $conn->prepare($query);
     $stmt->bindValue(1, (int)$_POST["electionId"]);
     session_start();
-    $stmt->bindValue(3, $_SESSION["userId"]);
+    $stmt->bindValue(2, $_SESSION["userId"]);
     $stmt->bindValue(3, $_POST["photo"]);
     $stmt->bindValue(4, $_POST["title"]);
     $stmt->bindValue(5, $_POST["descr"]);

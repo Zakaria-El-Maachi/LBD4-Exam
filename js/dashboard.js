@@ -3,6 +3,7 @@ const elections = document.querySelector("#elections");
 const create = document.querySelector("#create");
 const requests = document.querySelector("#requests");
 const message = document.querySelector("#message");
+const descr = document.querySelector("#description");
 var shown = elections;
 
 if(window.location.search == "?message=createdElection"){
@@ -42,4 +43,8 @@ function show(element){
 
 function hideMessage(){
     message.style["display"] = "none";
+}
+
+function showDescr(t){
+    descr.children[0].innerText = t;
 }

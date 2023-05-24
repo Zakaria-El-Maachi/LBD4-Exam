@@ -45,12 +45,16 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); ?>
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         echo "<tr>
                 <td>" . $row["title"] . "</td><td>" . $row["startDate"] . "</td><td>" . $row["endDate"] . "</td>
+                <td><button class='delete'>Delete</button></td>
                 </tr>";
                     }
                 } catch (PDOException $e) {
                     echo "An error has ocurred : " . $e->getMessage();
                 } ?>
             </table>
+            <div id="description">
+                <p></p>
+            </div>
         </section>
         <section id="create">
             <h1>Create Election</h1>
@@ -86,7 +90,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); ?>
                     <th>Election Title</th>
                 </tr>
                 <?php try {
-                    $query = "select e.electionId, e.title as electionTitle, u.userId, username, r.title as progTitle from candidateRequests r inner join users u on r.userId = u.userId inner join elections e on r.electionId = r.electionId";
+                    $query = "select e.electionId, e.title as electionTitle, u.userId, username, r.title as progTitle from candidateRequests r inner join elections e on e.electionId = r.electionId inner join users u on r.userId = u.userId ";
                     $stmt = $conn->prepare($query);
                     $stmt->execute();
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
