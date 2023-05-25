@@ -48,3 +48,14 @@ section{
     padding: 8px 25px;
     border-radius: 10px;
 }
+#message{
+    width: 100%;
+    display: none;
+    background-color: green;
+    position: relative;
+}
+#message > button{
+    position: absolute;
+    right: 0;
+    top: 0;
+}

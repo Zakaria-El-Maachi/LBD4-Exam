@@ -34,7 +34,7 @@
             }
             ?>
         </section>
-        <section>
+        <section id="bordered">
             <div id="info">
 
             </div>

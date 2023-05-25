@@ -12,6 +12,10 @@
 </head>
 
 <body>
+    <div id="message">
+        <p></p>
+        <button onclick="hideMessage()">X</button>
+    </div>
     <h1>Elections</h1>
     <p>Welcome to the elections page, choose an election to apply for or vote</p>
     <section>

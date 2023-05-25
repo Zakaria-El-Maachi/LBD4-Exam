@@ -19,10 +19,11 @@ create table elections(
 );
 
 create table candidates(
-    candidateId integer primary key,
+    candidateId integer,
     electionId integer not null,
     candidateName varchar(100) not null,
     photo varchar(400) not null,
+    primary key (candidateId, electionId),
     foreign key (candidateId) references users(userId) on delete cascade,
     foreign key (electionId) references elections(electionId) on delete cascade
 );
@@ -79,3 +80,5 @@ insert into candidates values (5, 3,"Zineb", "https://img.freepik.com/free-photo
 insert into programs values(1 , 1, "Nthg", "nthg", "jD97hNDiyvI", "https://img.freepik.com/free-photo/aerial-view-business-team_53876-124515.jpg?size=626&ext=jpg&ga=GA1.1.1687857673.1684429251&semt=sph");
 insert into programs values(2 , 2, "Uniqueness", "the best", "JZjAg6fK-BQ", "");
 insert into programs values(3 , 3, "Patience", "legendary", "sVx1mJDeUjY", "https://img.freepik.com/free-photo/futuristic-finance-digital-market-graph-user-interface-with-diagram-technology-hud-graphic-concept_90220-1365.jpg?size=626&ext=jpg&ga=GA1.1.1687857673.1684429251&semt=sph");
+insert into programs values(4 , 4, "Love", "Angel", "JZjAg6fK-BQ", "");
+insert into programs values(5 , 5, "Strength", "Principles", "sVx1mJDeUjY", "https://img.freepik.com/free-photo/futuristic-finance-digital-market-graph-user-interface-with-diagram-technology-hud-graphic-concept_90220-1365.jpg?size=626&ext=jpg&ga=GA1.1.1687857673.1684429251&semt=sph");

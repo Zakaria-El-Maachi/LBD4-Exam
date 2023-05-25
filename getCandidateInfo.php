@@ -1,4 +1,5 @@
 <?php
+$message = "success";
 try {
     if (isset($_POST["set"])) {
         $host = "localhost";
@@ -34,5 +35,6 @@ try {
         }
     }
 } catch (PDOException $e) {
-    echo "An error has ocurred : " . $e->getMessage();
+    $message = $e->getMessage();
 }
+echo $message;

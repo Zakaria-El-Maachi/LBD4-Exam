@@ -26,7 +26,7 @@ button.addEventListener("click", (event) => {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            window.location.href = `election.php${window.location.search}`;
+            window.location.href = `elections.php?message=${this.responseText}`;
         }
     };
     xhr.open("POST", "getCandidateInfo.php", true);
