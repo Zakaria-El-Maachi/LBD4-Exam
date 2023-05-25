@@ -66,19 +66,25 @@ create table candidateRequests(
 
 
 insert into users values (1, "zakaria", "zakaria.elmaachi@um6p.ma","$2y$10$M7/iYaATJbDYSp3neG2FZu1dpfAB6KEurhy1rjxiUyx26ViE01HhG" ,1);
+insert into users values (2, "ahmed", "ahmed.bentajer@um6p.ma","$2y$10$M7/iYaATJbDYSp3neG2FZu1dpfAB6KEurhy1rjxiUyx26ViE01HhG" ,0);
+insert into users values (3, "mouad", "mouad.jaber@um6p.ma","$2y$10$M7/iYaATJbDYSp3neG2FZu1dpfAB6KEurhy1rjxiUyx26ViE01HhG" ,0);
 
-insert into elections values (1, "delegate", "", "2016-11-01" , "2018-11-01");
-insert into elections values (2, "quoi", "", "2015-11-01" , "2019-11-01");
-insert into elections values (3, "como", "", "2013-11-01" , "2020-11-01");
+
+insert into elections values (1, "delegate", "Delegate of the class", "2016-11-01" , "2018-11-01");
+insert into elections values (2, "quoi", "no particular stuff hehe", "2015-11-01" , "2019-11-01");
+insert into elections values (3, "como", "yyeyeyeyeyeyeeyey", "2013-11-01" , "2020-11-01");
 
 insert into candidates values (1, 1,"Zakaria", "https://img.freepik.com/free-photo/portrait-handsome-young-boy_23-2148414490.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
-insert into candidates values (2, 1,"Aya", "https://img.freepik.com/free-photo/close-up-portrait-cheerful-glamour-girl-with-cute-make-up-smiling-white-teeth-looking-happy-camera-standing-blue-background_1258-70300.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
-insert into candidates values (3, 1,"Abdellatif", "https://img.freepik.com/free-photo/portrait-handsome-young-boy_23-2148414490.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
-insert into candidates values (4, 2,"Aziza", "https://img.freepik.com/free-photo/close-up-portrait-cheerful-glamour-girl-with-cute-make-up-smiling-white-teeth-looking-happy-camera-standing-blue-background_1258-70300.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
-insert into candidates values (5, 3,"Zineb", "https://img.freepik.com/free-photo/close-up-portrait-cheerful-glamour-girl-with-cute-make-up-smiling-white-teeth-looking-happy-camera-standing-blue-background_1258-70300.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
+insert into candidates values (2, 1,"Mouad", "https://img.freepik.com/free-photo/close-up-portrait-cheerful-glamour-girl-with-cute-make-up-smiling-white-teeth-looking-happy-camera-standing-blue-background_1258-70300.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
+insert into candidates values (3, 1,"Jaber", "https://img.freepik.com/free-photo/portrait-handsome-young-boy_23-2148414490.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
+insert into candidates values (4, 2,"Soulaimane", "https://img.freepik.com/free-photo/close-up-portrait-cheerful-glamour-girl-with-cute-make-up-smiling-white-teeth-looking-happy-camera-standing-blue-background_1258-70300.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
+insert into candidates values (5, 3,"Fatima", "https://img.freepik.com/free-photo/close-up-portrait-cheerful-glamour-girl-with-cute-make-up-smiling-white-teeth-looking-happy-camera-standing-blue-background_1258-70300.jpg?size=626&ext=jpg&ga=GA1.2.1687857673.1684429251&semt=sph");
 
 insert into programs values(1 , 1, "Nthg", "nthg", "jD97hNDiyvI", "https://img.freepik.com/free-photo/aerial-view-business-team_53876-124515.jpg?size=626&ext=jpg&ga=GA1.1.1687857673.1684429251&semt=sph");
 insert into programs values(2 , 2, "Uniqueness", "the best", "JZjAg6fK-BQ", "");
 insert into programs values(3 , 3, "Patience", "legendary", "sVx1mJDeUjY", "https://img.freepik.com/free-photo/futuristic-finance-digital-market-graph-user-interface-with-diagram-technology-hud-graphic-concept_90220-1365.jpg?size=626&ext=jpg&ga=GA1.1.1687857673.1684429251&semt=sph");
 insert into programs values(4 , 4, "Love", "Angel", "JZjAg6fK-BQ", "");
 insert into programs values(5 , 5, "Strength", "Principles", "sVx1mJDeUjY", "https://img.freepik.com/free-photo/futuristic-finance-digital-market-graph-user-interface-with-diagram-technology-hud-graphic-concept_90220-1365.jpg?size=626&ext=jpg&ga=GA1.1.1687857673.1684429251&semt=sph");
+
+
+insert into candidateRequests values(2, 3, "https://img.freepik.com/free-photo/futuristic-finance-digital-market-graph-user-interface-with-diagram-technology-hud-graphic-concept_90220-1365.jpg?size=626&ext=jpg&ga=GA1.1.1687857673.1684429251&semt=sph", "Strength", "Principles", "sVx1mJDeUjY","");

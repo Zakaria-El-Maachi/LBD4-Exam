@@ -86,12 +86,14 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); ?>
         </section>
         <section id="requests">
             <h1>Requests</h1>
-            <table class=".table">
-                <tr>
-                    <th>Program Title</th>
-                    <th>Usename</th>
-                    <th>Election Title</th>
-                </tr>
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Program Title</th>
+                        <th>Usename</th>
+                        <th>Election Title</th>
+                    </tr>
+                </thead>
                 <?php try {
                     $query = "select e.electionId, e.title as electionTitle, u.userId, username, r.title as progTitle from candidateRequests r inner join elections e on e.electionId = r.electionId inner join users u on r.userId = u.userId ";
                     $stmt = $conn->prepare($query);

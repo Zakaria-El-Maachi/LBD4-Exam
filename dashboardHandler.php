@@ -31,6 +31,16 @@ try {
         } else {
             echo "error";
         }
+    } elseif ($_POST["request"] == 3) {
+        $query = "select descr from elections where electionId = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bindValue(1, $_POST["electionId"]);
+        $stmt->execute();
+        if ($stmt !== false) {
+            echo $stmt->fetch(PDO::FETCH_ASSOC)["descr"];
+        } else {
+            echo "Error loading the description";
+        }
     }
 } catch (PDOException $e) {
     header("Location: dashboard.php?message=An error has ocurred : " . $e->getMessage());

@@ -57,7 +57,6 @@ function showDescr(t){
 document.querySelectorAll(".delete").forEach((btn) => {
     btn.addEventListener("click", (event) => {
         let id = event.target.parentElement.parentElement.getAttribute('data-electionid');
-        console.log(id);
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
@@ -67,5 +66,22 @@ document.querySelectorAll(".delete").forEach((btn) => {
         xhr.open("POST", "dashboardHandler.php", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send(`request=2&electionId=${id}`);
-    })
-})
+    });
+});
+
+document.querySelectorAll('#elections tr').forEach((line) => {
+    line.addEventListener("click", (event) => {
+        let id = line.getAttribute('data-electionid');
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                console.log(this.responseText);
+                descr.children[0].textContent = this.responseText;
+                descr.style.display = "block";
+            }
+        }
+        xhr.open("POST", "dashboardHandler.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(`request=3&electionId=${id}`);
+    });
+});
