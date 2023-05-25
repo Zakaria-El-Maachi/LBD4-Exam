@@ -1,0 +1,50 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 50px;
+}
+section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    column-gap: 5%;
+}
+.election{
+    border-radius: 25px;
+    height: 400px;
+    width: 25%;
+    padding: 0 3%;
+    box-shadow: 0 0 30px gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 30px;
+    background: linear-gradient(to top, rgb(60, 60, 121), rgb(80, 27, 80));
+    color: white;
+}
+.election > p{
+    height: 100px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.hor{
+    display:flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.vote{
+    background-color: rgb(129, 129, 208);
+}
+.apply{
+    background-color: red;
+}
+.apply, .vote{
+    font-weight: 600;
+    font-size: medium;
+    padding: 8px 25px;
+    border-radius: 10px;
+}

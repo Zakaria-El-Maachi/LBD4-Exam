@@ -6,12 +6,20 @@
     width: 100%;
 }
 #cards > div{
-    width: 30%;
-    box-shadow: 0 0 30px gray;
+    width: 20%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+#cards > div:hover{
+    transform: scale(1.05);
 }
 #cards img{
-    width: 30%;
-    object-fit: contain;
+    width: 50%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 #info{
@@ -19,4 +27,34 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+.ver{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    row-gap:50px
+}
+.ver *{
+    width: 75%;
+}
+.hor{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 100px 100px 0px;
+}
+
+#vote{
+    display: none;
+    margin: auto;
+    border-radius: 20px;
+    padding: 15px 40px;
+    font-weight: 700;
+    font-size: larger;
+    background-color: blueviolet;
+    color: white;
+    cursor: pointer;
 }

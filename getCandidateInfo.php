@@ -13,12 +13,15 @@ try {
             $stmt->bindValue(1, $_POST["candidateId"]);
             $stmt->execute();
             $answer = $stmt->fetch(PDO::FETCH_ASSOC);
-            echo
-            "<h1>" . $answer["title"] . "</h1><img src='" . $answer["photo"] . "' />" .
-                "<p>" . $answer["descr"] . "</p>" .
-                "<iframe frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen src='https://www.youtube.com/embed/" . $answer["vid"] . "></iframe>" .
-                "<p>" . $answer["descr"] . "</p>" .
-                "<img src='" . $answer["flyer"] . "' />---" . $answer["candidateId"];
+            echo "<div class='hor'>
+            <div class='ver'>
+            <h1>" . $answer["title"] . "</h1><p>" . $answer["descr"] . "</p>
+            </div>
+            <div class='ver'>
+            <img src='" . $answer["photo"] . "' />" . "<iframe frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen src='https://www.youtube.com/embed/" . $answer["vid"] . "></iframe>" .
+                "<img src='" . $answer["flyer"] . "' />
+            </div>
+            </div>---" . $answer["candidateId"];
         } else {
             $query = "insert into votes values (?, ?, ?, ?)";
             $stmt = $conn->prepare($query);

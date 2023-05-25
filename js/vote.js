@@ -2,13 +2,14 @@ const info =  document.getElementById("info");
 const button = document.getElementById("vote");
 
 document.querySelectorAll("#cards > div").forEach((card) => card.addEventListener("click", function() {
-    let data = `set=0&candidateId=${card.children[0].value}`;
+    let data = `set=0&candidateId=${card.getAttribute("data-id")}`;
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             response = this.responseText.split('---');
             info.style.display = "flex";
             info.innerHTML = response[0];
+            button.style.display ="block";
             button.setAttribute("data-candidateId", Number(response[1]));
         }
     };

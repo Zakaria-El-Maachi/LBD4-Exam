@@ -27,7 +27,7 @@
                 $stmt->bindParam(1, $_GET["electionId"]);
                 $stmt->execute();
                 while ($answer = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<div><input type='hidden' value='" . $answer["candidateId"] . "'><h1>" . $answer["candidateName"] . "</h1><img src='" . $answer["photo"] . "' /></div>";
+                    echo "<div data-id='" . $answer["candidateId"] . "'><h1>" . $answer["candidateName"] . "</h1><img src='" . $answer["photo"] . "' /></div>";
                 }
             } catch (PDOException $e) {
                 echo "An error has ocurred : " . $e->getMessage();
