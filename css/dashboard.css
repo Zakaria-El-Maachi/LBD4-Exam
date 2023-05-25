@@ -17,6 +17,7 @@ body{
     color: white;
     font-weight: 700;
     font-size: larger;
+    cursor: pointer;
 }
 
 #info{
@@ -42,8 +43,19 @@ body{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    row-gap: 7%;
     align-items: stretch;
-    margin: 0 10%;
+    margin: 5% 10%;
+}
+
+#elections > button{
+    width: fit-content;
+    align-self: flex-end;
+    padding: 10px 35px;
+    color: white;
+    background-color: rgb(71, 35, 104);
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 #create{
@@ -61,4 +73,17 @@ body{
     background-color: red;
     border-radius: 4px;
     font-size: small;
+    cursor: pointer;
+}
+
+tr{
+    cursor: pointer;
+}
+h1{
+    margin: 0;
+}
+
+table{
+    max-height: 50%;
+    overflow-y: scroll;
 }

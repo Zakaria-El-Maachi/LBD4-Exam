@@ -10,7 +10,12 @@ if(window.location.search == "?message=createdElection"){
     message.style["background-color"] = "green";
     message.children[0].textContent = "The election has successfully been created";
     message.style["display"] = "block";
-} else if(window.location.search == "?message=error"){
+} else if(window.location.search == "?message=deletedElection"){
+    message.style["background-color"] = "green";
+    message.children[0].textContent = "The election has successfully been deleted";
+    message.style["display"] = "block";
+}
+else if(window.location.search == "?message=error"){
     message.style["background-color"] = "pink";
     message.children[0].textContent = "There was an error in the operation";
     message.style["display"] = "block";
@@ -48,3 +53,19 @@ function hideMessage(){
 function showDescr(t){
     descr.children[0].innerText = t;
 }
+
+document.querySelectorAll(".delete").forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+        let id = event.target.parentElement.parentElement.getAttribute('data-electionid');
+        console.log(id);
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                window.location.href = window.location.pathname + "?message="+this.responseText;
+            }
+        }
+        xhr.open("POST", "dashboardHandler.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(`request=2&electionId=${id}`);
+    })
+})

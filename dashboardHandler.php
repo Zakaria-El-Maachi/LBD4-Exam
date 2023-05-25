@@ -21,6 +21,16 @@ try {
             header("Location: dashboard.php?message=An error has ocurred");
             exit();
         }
+    } elseif ($_POST["request"] == 2) {
+        $query = "delete from elections where electionId = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bindValue(1, $_POST["electionId"]);
+        $stmt->execute();
+        if ($stmt) {
+            echo "deletedElection";
+        } else {
+            echo "error";
+        }
     }
 } catch (PDOException $e) {
     header("Location: dashboard.php?message=An error has ocurred : " . $e->getMessage());

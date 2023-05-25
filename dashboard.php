@@ -11,7 +11,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/dashboard.css">
     <script defer src="js/dashboard.js"></script>
     <title>Document</title>
@@ -32,18 +32,21 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); ?>
         <section id="elections">
             <h1>Elections</h1>
             <button>Closed</button>
-            <table>
-                <tr>
-                    <th>Election Title</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                </tr>
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Election Title</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Deletion</th>
+                    </tr>
+                </thead>
                 <?php try {
                     $query = "select * from elections";
                     $stmt = $conn->prepare($query);
                     $stmt->execute();
                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<tr>
+                        echo "<tr data-electionid='" . $row['electionId'] . "'>
                 <td>" . $row["title"] . "</td><td>" . $row["startDate"] . "</td><td>" . $row["endDate"] . "</td>
                 <td><button class='delete'>Delete</button></td>
                 </tr>";
@@ -83,7 +86,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); ?>
         </section>
         <section id="requests">
             <h1>Requests</h1>
-            <table>
+            <table class=".table">
                 <tr>
                     <th>Program Title</th>
                     <th>Usename</th>
